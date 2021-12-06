@@ -39,12 +39,16 @@ class MyCards extends Component {
         }
     };
 
+    handleSearch = (e) => {
+        console.log(e.target.value);
+    }
+
     render() {
         const { cards } = this.state;
 
         return (
             <>
-                <PageHeader title="My Cards Page" />
+                <PageHeader title="My Cards Page" onChange={this.handleSearch} showSearch={true} />
                 <div className="row">
                     <div className="col-12">
                         <p>Your cards are listed below...</p>

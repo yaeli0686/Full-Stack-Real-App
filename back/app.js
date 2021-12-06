@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost/my_rest_api_W170620E', {
 app.use(require('morgan')('dev'));
 app.use(require('cors')());
 app.use(express.json());
-// app.use((req,res,next)=> {
+// app.use((req,res,next)=> { 
 //   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
 // });
 
