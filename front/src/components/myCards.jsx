@@ -6,7 +6,10 @@ import Card from "./card";
 import PageHeader from "./common/pageHeader";
 
 class MyCards extends Component {
-    state = { cards: [] };
+    state = {
+        cards: [],
+        filteredCards: []
+    };
 
     async componentDidMount() {
         this.getCards();
@@ -17,11 +20,13 @@ class MyCards extends Component {
         if (data.length) {
             this.setState({
                 cards: data,
+                filteredCards: data,
             });
         }
     }
 
     handleCardDelete = async (id) => {
+
         try {
             await cardsService.deleteCard(id);
             toast("Card deleted");
@@ -40,11 +45,14 @@ class MyCards extends Component {
     };
 
     handleSearch = (e) => {
-        console.log(e.target.value);
+        let value = e.target.value;
+        let filteredCards = this.state.cards.filter((card) => card.bizName.toLowerCase().includes(value.toLowerCase()));
+        this.setState({ filteredCards });
     }
 
     render() {
-        const { cards } = this.state;
+        const { filteredCards } = this.state;
+
 
         return (
             <>
@@ -58,8 +66,8 @@ class MyCards extends Component {
                     <Link to="/create-card">Create a New Card</Link>
                 </div>
                 <div className="row">
-                    {cards.length ? (
-                        cards.map((card) => (
+                    {filteredCards.length ? (
+                        filteredCards.map((card) => (
                             <Card
                                 key={card._id}
                                 card={card}
