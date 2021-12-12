@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import Favourite from "./favourite";
+
 
 const Card = ({
     card: { _id, bizImage, bizName, bizAddress, bizPhone, bizDescription },
@@ -11,7 +13,10 @@ const Card = ({
                     <img src={bizImage} alt={bizName} className="card-img-top" />
                 </div>
                 <div className="card-body">
-                    <h5 className="card-title">{bizName}</h5>
+                    <div className="flex">
+                        <h5 className="card-title">{bizName}</h5>
+                        <Favourite isFavourite={true} />
+                    </div>
                     <p className="card-text">{bizDescription}</p>
 
                 </div>

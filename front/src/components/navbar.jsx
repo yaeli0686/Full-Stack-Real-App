@@ -18,6 +18,13 @@ const Navbar = ({ user }) => {
                                 <NavLink className="nav-link" aria-current="page" to="/my-cards">My Cards</NavLink>
                             </li>
                         )}
+
+                        {user && (
+                            <li className="nav-item">
+                                <NavLink className="nav-link" aria-current="page" to="/my-favourite">My Favourites</NavLink>
+                            </li>
+                        )}
+
                         <li className="nav-item">
                             <NavLink className="nav-link" aria-current="page" to="/about">About</NavLink>
                         </li>
