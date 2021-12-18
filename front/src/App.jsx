@@ -5,7 +5,7 @@ import Home from "./components/home";
 import Navbar from "./components/navbar";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import PageNotFound from "./components/pageNotFouns";
-import Users from "./components/users";
+// import Users from "./components/users";
 import Signup from "./components/signup";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -50,12 +50,14 @@ class App extends Component {
           <Switch>
             <ProtectedRoute path="/my-cards/edit/:id" component={EditCard} biz={true} exact />
             <ProtectedRoute path="/create-card" component={NewCard} biz={true} exact />
-            <ProtectedRoute path="/my-cards" component={MyCards} biz={true} exact />
+            <ProtectedRoute path="/all-cards" component={MyCards} exact />
+            <ProtectedRoute path="/my-cards" render={() => <MyCards variation="my-cards" />} biz={true} exact />
+            <ProtectedRoute path="/favourite-cards" render={() => <MyCards variation="favourite-cards" />} exact />
             <Route path="/signup" component={Signup} />
             <Route path="/signupbiz" component={signupBiz} />
             <Route path="/signin" component={SignIn} />
             <Route path="/logout" component={Logout} />
-            <Route path="/users" component={Users} />
+            {/* <Route path="/users" component={Users} /> */}
             <Route path="/about" component={About} />
             <Route path="/pageNotFound" exact component={PageNotFound} />
             <Route path={["/home", "/"]} component={Home} exact />

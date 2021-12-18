@@ -5,8 +5,8 @@ export function createCard(card) {
     return httpService.post(`${apiUrl}/cards`, card);
 }
 
-export function getMyCards() {
-    return httpService.get(`${apiUrl}/cards/my-cards`);
+export function getMyCards(variation = "all-cards") {
+    return httpService.get(`${apiUrl}/cards/${variation}`);
 }
 
 export function editCard({ _id, ...body }) {

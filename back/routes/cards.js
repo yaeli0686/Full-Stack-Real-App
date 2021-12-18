@@ -13,6 +13,16 @@ router.get("/my-cards", auth, async (req, res) => {
   res.json(cards);
 });
 
+router.get("/all-cards", auth, async (req, res) => {
+  const cards = await Card.find();
+  res.json(cards);
+});
+
+router.get("/favourite-cards", auth, async (req, res) => {
+  const cards = await Card.find({ user_id: req.user._id, fav });
+  res.json(cards);
+});
+
 router.delete('/:id', auth, async (req, res) => {
 
   const card = await Card.findOneAndRemove({ _id: req.params.id, user_id: req.user._id });

@@ -7,14 +7,14 @@ const Card = ({
     onDelete,
 }) => {
     return (
-        <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3">
-            <div className="card">
+        <div className="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2 mt-3 flex-grow-1">
+            <div className="border-0 card d-flex flex-column h-100 shadow">
                 <div className="imageWrapper d-flex align-items-center justify-content-center">
                     <img src={bizImage} alt={bizName} className="card-img-top" />
                 </div>
-                <div className="card-body">
-                    <div className="flex">
-                        <h5 className="card-title">{bizName}</h5>
+                <div className="card-body flex-grow-1">
+                    <div className="align-items-center d-flex flex justify-content-between mb-5 position-relative" style={{ marginTop: "-5em" }}>
+                        <h5 className="card-title fs-4 fw-bold text-white text-truncate me-3">{bizName}</h5>
                         <Favourite isFavourite={true} />
                     </div>
                     <p className="card-text">{bizDescription}</p>
@@ -41,7 +41,7 @@ const Card = ({
                     </li>
 
                 </ul>
-                <div className="card-body d-flex justify-content-between">
+                <div className="align-items-center card-body d-flex flex-grow-0 justify-content-between">
                     <Link className="card-link" to={`/my-cards/edit/${_id}`}>
                         <i className="bi bi-pencil-fill me-2"></i> Edit
                     </Link>
