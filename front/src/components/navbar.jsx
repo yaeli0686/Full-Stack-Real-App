@@ -12,7 +12,10 @@ const Navbar = ({ user }) => {
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarsExample05">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="gap-2 mb-2 mb-lg-0 me-auto navbar-nav">
+                        <li className="nav-item">
+                            <NavLink className="nav-link" aria-current="page" to="/all-cards">All Cards</NavLink>
+                        </li>
                         {user?.biz && (
                             <li className="nav-item">
                                 <NavLink className="nav-link" aria-current="page" to="/my-cards">My Cards</NavLink>
@@ -21,7 +24,7 @@ const Navbar = ({ user }) => {
 
                         {user && (
                             <li className="nav-item">
-                                <NavLink className="nav-link" aria-current="page" to="/my-favourite">My Favourites</NavLink>
+                                <NavLink className="nav-link" aria-current="page" to="/favourite-cards">Favourite Cards</NavLink>
                             </li>
                         )}
 
@@ -29,7 +32,7 @@ const Navbar = ({ user }) => {
                             <NavLink className="nav-link" aria-current="page" to="/about">About</NavLink>
                         </li>
                     </ul>
-                    <ul className="navbar-nav mb-2 mb-lg-0">
+                    <ul className="navbar-nav mb-2 mb-lg-0 gap-2">
                         {user ? (
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/logout" aria-disabled="true">Logout</NavLink>

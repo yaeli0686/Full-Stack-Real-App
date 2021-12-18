@@ -17,7 +17,8 @@ class MyCards extends Component {
     }
 
     async getCards() {
-        const { data } = await cardsService.getMyCards();
+        // console.log(this.props.variation);
+        const { data } = await cardsService.getMyCards(this.props.variation);
         if (data.length) {
             this.setState({
                 cards: data,
@@ -64,9 +65,11 @@ class MyCards extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <Link to="/create-card">Create a New Card</Link>
+                    <div className="col">
+                        <Link to="/create-card" className="btn btn-lg btn-primary w-100">Create a New Card</Link>
+                    </div>
                 </div>
-                <div className="row">
+                <div className="g-4 my-4 row">
                     {filteredCards.length ? (
                         filteredCards.map((card) => (
                             <Card
