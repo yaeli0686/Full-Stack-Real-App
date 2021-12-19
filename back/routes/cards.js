@@ -13,11 +13,6 @@ router.get("/my-cards", auth, async (req, res) => {
   res.json(cards);
 });
 
-router.get("/all-cards", auth, async (req, res) => {
-  const cards = await Card.find();
-  res.json(cards);
-});
-
 router.get("/favourite-cards", auth, async (req, res) => {
   const cards = await Card.find({ user_id: req.user._id, fav });
   res.json(cards);
@@ -50,6 +45,11 @@ router.get('/:id', auth, async (req, res) => {
   if (!card) return res.status(404).send('The card with the given ID was not found.');
   res.send(card);
 
+});
+
+router.get("/", auth, async (req, res) => {
+  const cards = await Card.find();
+  res.json(cards);
 });
 
 router.post('/', auth, async (req, res) => {
