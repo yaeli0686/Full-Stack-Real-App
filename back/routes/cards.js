@@ -13,7 +13,7 @@ router.get("/my-cards", auth, async (req, res) => {
   res.json(cards);
 });
 
-router.get("/all-cards", auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
   const cards = await Card.find();
   res.json(cards);
 });
