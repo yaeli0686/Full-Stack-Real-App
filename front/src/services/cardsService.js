@@ -6,6 +6,10 @@ export function createCard(card) {
 }
 
 export function getMyCards() {
+    return httpService.get(`${apiUrl}/cards/my-cards`);
+}
+
+export function getAllCards() {
     return httpService.get(`${apiUrl}/cards`);
 }
 
@@ -22,6 +26,7 @@ export function deleteCard(id) {
 }
 
 const cardsService = {
+    getAllCards,
     createCard,
     editCard,
     getMyCards,

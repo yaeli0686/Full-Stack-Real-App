@@ -13,7 +13,7 @@ class MyCards extends Component {
         filteredCards: []
     };
 
-    async componentDidMount() {
+    componentDidMount() {
         this.getCards();
     }
 
@@ -22,11 +22,16 @@ class MyCards extends Component {
             const { data } = await favouritesService.getFavourites();
             console.log({ data });
         } else {
-            const { data } = await cardsService.getMyCards();
-            if (data.length) {
+            let result = {};
+            if (this.props.variation === "my-cards") {
+                result = await cardsService.getMyCards();
+            } else {
+                result = await cardsService.getAllCards();
+            }
+            if (result.data?.length) {
                 this.setState({
-                    cards: data,
-                    filteredCards: data,
+                    cards: result.data,
+                    filteredCards: result.data,
                 });
             }
         }
@@ -59,7 +64,7 @@ class MyCards extends Component {
 
     render() {
         const { filteredCards } = this.state;
-
+        console.log("Rendering")
 
         return (
             <>
