@@ -3,8 +3,9 @@ import Favourite from "./favourite";
 
 
 const Card = ({
-    card: { _id, bizImage, bizName, bizAddress, bizPhone, bizDescription },
+    card: { _id, bizImage, bizName, bizAddress, bizPhone, bizDescription, favouriteBy },
     onDelete,
+    onFavouriteClick
 }) => {
     return (
         <div className="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2 mt-3 flex-grow-1">
@@ -15,7 +16,7 @@ const Card = ({
                 <div className="card-body flex-grow-1">
                     <div className="align-items-center d-flex flex justify-content-between mb-5 position-relative" style={{ marginTop: "-5em" }}>
                         <h5 className="card-title fs-4 fw-bold text-white text-truncate me-3">{bizName}</h5>
-                        <Favourite isFavourite={true} />
+                        <Favourite isFavourite={favouriteBy.includes('61bdba1e7ba48735bf03ccc7')} cardId={_id} onClick={onFavouriteClick} />
                     </div>
                     <p className="card-text">{bizDescription}</p>
 

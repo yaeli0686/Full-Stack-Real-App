@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import cardsService from "../services/cardsService";
-import favouritesService from "../services/favouritesService";
 import Card from "./card";
 import PageHeader from "./common/pageHeader";
 
@@ -18,22 +17,12 @@ class MyCards extends Component {
     }
 
     async getCards() {
-        if (this.props.variation === "favourite-cards") {
-            const { data } = await favouritesService.getFavourites();
-            console.log({ data });
-        } else {
-            let result = {};
-            if (this.props.variation === "my-cards") {
-                result = await cardsService.getMyCards();
-            } else {
-                result = await cardsService.getAllCards();
-            }
-            if (result.data?.length) {
-                this.setState({
-                    cards: result.data,
-                    filteredCards: result.data,
-                });
-            }
+        const { data } = await cardsService.getCards(this.props.variation); //  "" | "my-cards" | "favourite-cards"
+        if (data.length) {
+            this.setState({
+                cards: data,
+                filteredCards: data,
+            });
         }
     }
 
@@ -62,6 +51,16 @@ class MyCards extends Component {
         this.setState({ filteredCards });
     }
 
+    handleFavouriteClick = async (card) => {
+        // if user is logged in
+        // add/remove userID to/from the card.favouriteBy array
+        let newCard = { ...card };
+        newCard.favouriteBy = [...newCard.favouriteBy, `61bdba1e7ba48735bf03ccc7`];
+        await cardsService.editCard(card);
+        // else
+        // redirect to login or alert user
+    }
+
     render() {
         const { filteredCards } = this.state;
         console.log("Rendering")
@@ -86,6 +85,7 @@ class MyCards extends Component {
                                 key={card._id}
                                 card={card}
                                 onDelete={() => this.handleCardDelete(card._id)}
+                                onFavouriteClick={() => this.handleFavouriteClick(card)}
                             />
                         ))
                     ) : (

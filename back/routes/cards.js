@@ -8,13 +8,12 @@ router.get("/my-cards", auth, async (req, res) => {
   if (!req.user.biz) {
     return res.status(401).send("Access Denied");
   }
-
   const cards = await Card.find({ user_id: req.user._id });
   res.json(cards);
 });
 
 router.get("/favourite-cards", auth, async (req, res) => {
-  const cards = await Card.find({ user_id: req.user._id, fav });
+  const cards = await Card.find({ favoriteBy: { $in: [req.user._id] } });
   res.json(cards);
 });
 

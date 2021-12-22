@@ -1,7 +1,6 @@
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const cards = require('./routes/cards');
-const favourites = require('./routes/favourites');
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
@@ -25,7 +24,6 @@ app.use(express.json());
 app.use('/api/users', users);
 app.use('/api/auth', auth);
 app.use('/api/cards', cards);
-app.use('/api/favourites', favourites);
 
 const port = 3900;
 http.listen(port, () => console.log(`Listening on port ${port}...`));

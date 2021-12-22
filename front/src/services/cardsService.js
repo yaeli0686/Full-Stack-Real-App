@@ -5,12 +5,8 @@ export function createCard(card) {
     return httpService.post(`${apiUrl}/cards`, card);
 }
 
-export function getMyCards() {
-    return httpService.get(`${apiUrl}/cards/my-cards`);
-}
-
-export function getAllCards() {
-    return httpService.get(`${apiUrl}/cards`);
+export function getCards(filterby = '') {
+    return httpService.get(`${apiUrl}/cards/${filterby}`);
 }
 
 export function editCard({ _id, ...body }) {
@@ -26,10 +22,9 @@ export function deleteCard(id) {
 }
 
 const cardsService = {
-    getAllCards,
     createCard,
     editCard,
-    getMyCards,
+    getCards,
     getCard,
     deleteCard,
 };

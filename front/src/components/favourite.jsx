@@ -2,14 +2,11 @@ import React from 'react';
 
 class Favourite extends React.Component {
 
-    // isFavourite:boolean,
-    // onClick()
-
     render() {
-        let favouriteClass = this.props.isFavourite ? "bi bi-heart-fill text-danger" : "bi bi-heart";
+        let favouriteClass = this.props.isFavourite ? "bi bi-heart-fill" : "bi bi-heart";
 
         return (
-            <button type='button' className='fs-5 btn btn-link shadow-none favBtn'>
+            <button type='button' className='fs-5 btn btn-link shadow-none text-danger favBtn' onClick={this.props.onClick}>
                 <i className={favouriteClass}></i>
             </button>
         )
