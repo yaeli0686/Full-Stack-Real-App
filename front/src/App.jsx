@@ -51,14 +51,14 @@ class App extends Component {
             <ProtectedRoute path="/my-cards/edit/:id" component={EditCard} biz={true} exact />
             <ProtectedRoute path="/create-card" component={NewCard} biz={true} exact />
             <ProtectedRoute path="/all-cards" component={MyCards} exact />
-            <ProtectedRoute path="/my-cards" render={() => <MyCards variation="my-cards" />} biz={true} exact />
-            <ProtectedRoute path="/favourite-cards" render={() => <MyCards variation="favourite-cards" />} exact />
+            <ProtectedRoute path="/my-cards" render={() => <MyCards variation="my-cards" key={Date.now()} />} biz={true} exact />
+            <ProtectedRoute path="/favourite-cards" render={() => <MyCards variation="favourite-cards" key={Date.now()} />} exact />
             <Route path="/signup" component={Signup} />
             <Route path="/signupbiz" component={signupBiz} />
             <Route path="/signin" component={SignIn} />
             <Route path="/logout" component={Logout} />
             {/* <Route path="/users" component={Users} /> */}
-            <Route path="/about" component={About} />
+            < Route path="/about" component={About} />
             <Route path="/pageNotFound" exact component={PageNotFound} />
             <Route path={["/home", "/"]} component={Home} exact />
             <Redirect to="/pageNotFound"></Redirect>

@@ -1,4 +1,5 @@
 const Joi = require('joi');
+// Joi.objectId = require('joi-objectId')(Joi);
 const mongoose = require('mongoose');
 const _ = require('lodash');
 
@@ -40,7 +41,8 @@ const cardSchema = new mongoose.Schema({
     maxlength: 99999999999,
     unique: true
   },
-  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  favouriteBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 
 const Card = mongoose.model('Card', cardSchema);
@@ -52,7 +54,8 @@ function validateCard(card) {
     bizDescription: Joi.string().min(2).max(1024).required(),
     bizAddress: Joi.string().min(2).max(400).required(),
     bizPhone: Joi.string().min(9).max(10).required().regex(/^0[2-9]\d{7,8}$/),
-    bizImage: Joi.string().min(11).max(1024)
+    bizImage: Joi.string().min(11).max(1024),
+    // favouriteBy: Joi.array().items(Joi.objectId())
   });
 
   return schema.validate(card);

@@ -13,13 +13,21 @@ router.get("/my-cards", auth, async (req, res) => {
   res.json(cards);
 });
 
-router.get("/", auth, async (req, res) => {
-  const cards = await Card.find();
+router.get("/favourite-cards", auth, async (req, res) => {
+  const cards = await Card.find({ favouriteBy: { $in: [req.user._id] } });
   res.json(cards);
 });
 
-router.get("/favourite-cards", auth, async (req, res) => {
-  const cards = await Card.find({ user_id: req.user._id, fav });
+router.get('/:id', auth, async (req, res) => {
+
+  const card = await Card.findOne({ _id: req.params.id, user_id: req.user._id });
+  if (!card) return res.status(404).send('The card with the given ID was not found.');
+  res.send(card);
+
+});
+
+router.get("/", auth, async (req, res) => {
+  const cards = await Card.find();
   res.json(cards);
 });
 
@@ -44,11 +52,33 @@ router.put('/:id', auth, async (req, res) => {
 
 });
 
-router.get('/:id', auth, async (req, res) => {
+router.put('/:id/favourite/add', auth, async (req, res) => {
 
-  const card = await Card.findOne({ _id: req.params.id, user_id: req.user._id });
+  let card = await Card.findOne({ _id: req.params.id });
   if (!card) return res.status(404).send('The card with the given ID was not found.');
-  res.send(card);
+
+  if (!card.favouriteBy.includes(req.user._id)) {
+    card.favouriteBy = [...card.favouriteBy, req.user._id];
+    let returningCard = await Card.findOneAndUpdate({ _id: req.params.id }, card, { new: true });
+    res.send(returningCard);
+  } else {
+    return res.status(404).send('The card with the given ID is already on your favourites.');
+  }
+
+});
+
+router.put('/:id/favourite/remove', auth, async (req, res) => {
+
+  let card = await Card.findOne({ _id: req.params.id });
+  if (!card) return res.status(404).send('The card with the given ID was not found.');
+
+  if (card.favouriteBy.includes(req.user._id)) {
+    card.favouriteBy = card.favouriteBy.filter(id => id !== req.user._id);
+    let returningCard = await Card.findOneAndUpdate({ _id: req.params.id }, card, { new: true });
+    res.send(returningCard);
+  } else {
+    return res.status(404).send('The card with the given ID is NOT on your favourites.');
+  }
 
 });
 
@@ -65,7 +95,8 @@ router.post('/', auth, async (req, res) => {
       bizPhone: req.body.bizPhone,
       bizImage: req.body.bizImage ? req.body.bizImage : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
       bizNumber: await generateBizNumber(Card),
-      user_id: req.user._id
+      user_id: req.user._id,
+      favouriteBy: []
     }
   );
 
