@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import favouritesService from "../services/favouritesService";
 import cardsService from "../services/cardsService";
 import Card from "./card";
 import PageHeader from "./common/pageHeader";
@@ -18,18 +17,14 @@ class MyCards extends Component {
     }
 
     async getCards() {
-        if (this.props.variation === "favourite-cards") {
-            const { data } = await favouritesService.getFavourites();
-            console.log({ data });
-        } else {
-            const { data } = await cardsService.getMyCards();
-            if (data.length) {
-                this.setState({
-                    cards: data,
-                    filteredCards: data,
-                });
-            }
+        const { data } = await cardsService.getMyCards(this.props.variation);
+        if (data.length) {
+            this.setState({
+                cards: data,
+                filteredCards: data,
+            });
         }
+
     }
 
     handleCardDelete = async (id) => {
@@ -80,6 +75,7 @@ class MyCards extends Component {
                             <Card
                                 key={card._id}
                                 card={card}
+                                user={this.props.user}
                                 onDelete={() => this.handleCardDelete(card._id)}
                             />
                         ))

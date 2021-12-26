@@ -3,7 +3,8 @@ import Favourite from "./favourite";
 
 
 const Card = ({
-    card: { _id, bizImage, bizName, bizAddress, bizPhone, bizDescription },
+    user,
+    card: { _id, bizImage, bizName, bizAddress, bizPhone, bizDescription, favouriteBy },
     onDelete,
 }) => {
     return (
@@ -15,7 +16,7 @@ const Card = ({
                 <div className="card-body flex-grow-1">
                     <div className="align-items-center d-flex flex justify-content-between mb-5 position-relative" style={{ marginTop: "-5em" }}>
                         <h5 className="card-title fs-4 fw-bold text-white text-truncate me-3">{bizName}</h5>
-                        <Favourite isFavourite={true} />
+                        <Favourite isFavourite={favouriteBy?.includes(user?._id)} cardID={_id} />
                     </div>
                     <p className="card-text">{bizDescription}</p>
 

@@ -5,8 +5,12 @@ export function createCard(card) {
     return httpService.post(`${apiUrl}/cards`, card);
 }
 
-export function getMyCards() {
-    return httpService.get(`${apiUrl}/cards`);
+export function getMyCards(variation = "") {   //["","my-cards","favourite-cards"]
+    return httpService.get(`${apiUrl}/cards/${variation}`);
+}
+
+export function handleFavouriteCard(cardID, operatorVariation = "add") {
+    return httpService.put(`${apiUrl}/cards/${cardID}/favourite/${operatorVariation}`);
 }
 
 export function editCard({ _id, ...body }) {
