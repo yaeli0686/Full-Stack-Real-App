@@ -26,7 +26,7 @@ router.get('/:id', auth, async (req, res) => {
 
 });
 
-router.get("/", auth, async (req, res) => {
+router.get("/", async (req, res) => {
   const cards = await Card.find();
   res.json(cards);
 });

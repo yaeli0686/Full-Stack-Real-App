@@ -50,7 +50,7 @@ class App extends Component {
           <Switch>
             <ProtectedRoute path="/my-cards/edit/:id" component={EditCard} biz={true} exact />
             <ProtectedRoute path="/create-card" component={NewCard} biz={true} exact />
-            <ProtectedRoute path="/all-cards" component={MyCards} exact />
+            <Route path="/all-cards" render={() => <MyCards user={user} key={Date.now()} />} exact />
             <ProtectedRoute path="/my-cards" render={() => <MyCards variation="my-cards" user={user} key={Date.now()} />} biz={true} exact />
             <ProtectedRoute path="/favourite-cards" render={() => <MyCards variation="favourite-cards" user={user} key={Date.now()} />} exact />
             <Route path="/signup" component={Signup} />
