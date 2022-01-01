@@ -8,7 +8,8 @@ axios.interceptors.response.use(null, (err) => {
         toast.error('Bad connection to server');
     }
     if (response && response.status >= 403) {
-        toast.error('An unexpected error occured');
+        console.error(response)
+        toast.error(`${response?.message || response?.data || ""}`);
     }
 
     return Promise.reject(err);
