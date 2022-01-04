@@ -12,7 +12,7 @@ class MyCards extends Component {
         filteredCards: []
     };
 
-    async componentDidMount() {
+    componentDidMount() {
         this.getCards();
     }
 

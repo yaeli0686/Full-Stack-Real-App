@@ -54,32 +54,40 @@ router.put('/:id', auth, async (req, res) => {
 
 router.put('/:id/favourite/add', auth, async (req, res) => {
 
-  let card = await Card.findOne({ _id: req.params.id });
-  if (!card) return res.status(404).send('The card with the given ID was not found.');
+  let card;
 
-  if (!card.favouriteBy.includes(req.user._id)) {
-    card.favouriteBy = [...card.favouriteBy, req.user._id];
-    let returningCard = await Card.findOneAndUpdate({ _id: req.params.id }, card, { new: true });
-    res.send(returningCard);
-  } else {
-    return res.status(404).send('The card with the given ID is already on your favourites.');
+  try {
+    card = await Card.findByIdAndUpdate(
+      req.params.id,
+      { $addToSet: { "favouriteBy": [req.user._id] } },
+      { safe: true, upsert: true, new: true }
+    );
   }
+  catch (error) {
+    console.log(error);
+    return res.status(404).send(`Somthing went wrong while adding card to favourites.`);
+  }
+
+  res.send(card);
 
 });
 
 router.put('/:id/favourite/remove', auth, async (req, res) => {
+  let card;
 
-  let card = await Card.findOne({ _id: req.params.id });
-  if (!card) return res.status(404).send('The card with the given ID was not found.');
-
-  if (card.favouriteBy.includes(req.user._id)) {
-    card.favouriteBy = card.favouriteBy.filter(id => id !== req.user._id);
-    let returningCard = await Card.findOneAndUpdate({ _id: req.params.id }, card, { new: true });
-    res.send(returningCard);
-  } else {
-    return res.status(404).send('The card with the given ID is NOT on your favourites.');
+  try {
+    card = await Card.findByIdAndUpdate(
+      req.params.id,
+      { $pullAll: { "favouriteBy": [req.user._id] } },
+      { safe: true, upsert: true, new: true }
+    );
+  }
+  catch (error) {
+    console.log(error);
+    return res.status(404).send(`Somthing went wrong while removing card from favourites.`);
   }
 
+  res.send(card);
 });
 
 router.post('/', auth, async (req, res) => {
