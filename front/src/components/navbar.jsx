@@ -35,7 +35,7 @@ const Navbar = ({ user }) => {
                     <ul className="navbar-nav mb-2 mb-lg-0 gap-2">
                         {user ? (
                             <li className="nav-item">
-                                <NavLink className="align-items-center d-flex gap-2 nav-link" to="/logout" aria-disabled="true">Logout <i class="bi bi-box-arrow-right fs-5"></i></NavLink>
+                                <NavLink className="align-items-center d-flex gap-2 nav-link" to="/logout" aria-disabled="true">Logout <i className="bi bi-box-arrow-right fs-5"></i></NavLink>
                             </li>
                         ) : (
                             <>

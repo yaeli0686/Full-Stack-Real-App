@@ -25,7 +25,7 @@ class Favourite extends React.Component {
 
     render() {
         return (
-            <button type='button' className={`align-items-center btn btn-link d-flex favBtn fs-4 justify-content-center p-3 position-relative shadow-none`} onClick={this.handleClick}>
+            <button title={this.props.favouriteCounter} type='button' className={`align-items-center btn btn-link d-flex favBtn fs-4 justify-content-center p-3 position-relative shadow-none`} onClick={this.handleClick}>
                 {this.state.isFavourite && <i className="bi bi-heart-fill position-absolute text-danger"></i>}
                 <i className="bi bi-heart position-absolute text-white"></i>
             </button>

@@ -9,7 +9,8 @@ import PageHeader from "./common/pageHeader";
 class MyCards extends Component {
     state = {
         cards: [],
-        filteredCards: []
+        filteredCards: [],
+        sortedCards: []
     };
 
     componentDidMount() {
@@ -22,6 +23,7 @@ class MyCards extends Component {
             this.setState({
                 cards: data,
                 filteredCards: data,
+                sortedCards: data
             });
         }
 
@@ -52,13 +54,41 @@ class MyCards extends Component {
         this.setState({ filteredCards });
     }
 
+    handleSort = (event, sortBy) => {
+        event.preventDefault();
+        let newSortedCards;
+        if (sortBy === "name") {
+            newSortedCards = [...this.state.sortedCards].sort((a, b) => {
+                if (a.bizName < b.bizName) {
+                    return -1;
+                }
+                if (a.bizName > b.bizName) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+        if (sortBy === "popularity") {
+            newSortedCards = [...this.state.sortedCards].sort((a, b) => {
+                if (a.favouriteBy.length > b.favouriteBy.length) {
+                    return -1;
+                }
+                if (a.favouriteBy.length < b.favouriteBy.length) {
+                    return 1;
+                }
+                return 0;
+            });
+        }
+        this.setState({ sortedCards: newSortedCards });
+    }
+
     render() {
-        const { filteredCards } = this.state;
+        const { sortedCards } = this.state;
 
 
         return (
             <>
-                <PageHeader title="My Cards Page" onChange={this.handleSearch} showSearch={true} />
+                <PageHeader title="My Cards Page" onChange={this.handleSearch} onSort={this.handleSort} showSearch={true} />
                 <div className="row">
                     <div className="col-12">
                         <p>Your cards are listed below...</p>
@@ -70,8 +100,8 @@ class MyCards extends Component {
                     </div>
                 </div>
                 <div className="g-4 my-4 row">
-                    {filteredCards.length ? (
-                        filteredCards.map((card) => (
+                    {sortedCards.length ? (
+                        sortedCards.map((card) => (
                             <Card
                                 key={card._id}
                                 card={card}
