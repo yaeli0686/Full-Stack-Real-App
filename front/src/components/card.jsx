@@ -8,7 +8,7 @@ const Card = ({
     onDelete,
 }) => {
     return (
-        <div className="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2 mt-3 flex-grow-1">
+        <div className="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3 mt-3">
             <div className="border-0 card d-flex flex-column h-100 shadow">
                 <div className="imageWrapper d-flex align-items-center justify-content-center">
                     <img src={bizImage} alt={bizName} className="card-img-top" />

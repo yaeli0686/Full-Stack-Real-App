@@ -7,7 +7,10 @@ const PageHeader = (props) => {
                 <h1>{props.title}</h1>
             </div>
             {props.showSearch && <div className="col-sm-6">
-                <input type="search" className="form-control" placeholder="Search..." aria-label="Search" onChange={props.onChange} />
+                <div className="searchWrapper position-relative">
+                    <i class="bi bi-search position-absolute py-2 px-3"></i>
+                    <input type="search" className="form-control ps-5" placeholder="Search..." aria-label="Search" onChange={props.onChange} />
+                </div>
             </div>}
         </div>
     );
