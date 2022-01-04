@@ -9,7 +9,7 @@ class Favourite extends React.Component {
 
     handleClick = () => {
         if (!this.props.userID) {
-            return toast.warning("Please first log in");
+            return toast.warning("You have to be logged in first.");
         }
         let operator = this.state.isFavourite ? "remove" : "add";
         let originalState = this.state.isFavourite;
@@ -24,11 +24,10 @@ class Favourite extends React.Component {
     }
 
     render() {
-        let favouriteClass = this.state.isFavourite ? "bi bi-heart-fill text-danger" : "bi bi-heart text-white";
-
         return (
-            <button type='button' className='fs-5 btn btn-link shadow-none favBtn' onClick={this.handleClick}>
-                <i className={favouriteClass}></i>
+            <button type='button' className={`align-items-center btn btn-link d-flex favBtn fs-4 justify-content-center p-3 position-relative shadow-none`} onClick={this.handleClick}>
+                {this.state.isFavourite && <i className="bi bi-heart-fill position-absolute text-danger"></i>}
+                <i className="bi bi-heart position-absolute text-white"></i>
             </button>
         )
     }

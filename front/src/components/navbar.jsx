@@ -35,12 +35,15 @@ const Navbar = ({ user }) => {
                     <ul className="navbar-nav mb-2 mb-lg-0 gap-2">
                         {user ? (
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/logout" aria-disabled="true">Logout</NavLink>
+                                <NavLink className="align-items-center d-flex gap-2 nav-link" to="/logout" aria-disabled="true">Logout <i class="bi bi-box-arrow-right fs-5"></i></NavLink>
                             </li>
                         ) : (
                             <>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/signin">Sign In</NavLink>
+                                </li>
+                                <li className="align-items-center d-flex divider nav-item">
+                                    <i className="border-secondary border-start d-block h-75"></i>
                                 </li>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/signup" aria-disabled="true">Sign Up</NavLink>
