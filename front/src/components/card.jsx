@@ -4,7 +4,7 @@ import Favourite from "./favourite";
 
 const Card = ({
     user,
-    card: { _id, bizImage, bizName, bizAddress, bizPhone, bizDescription, favouriteBy },
+    card: { _id, bizImage, bizName, bizAddress, bizPhone, bizDescription, favouriteBy, user_id },
     onDelete,
 }) => {
     return (
@@ -43,15 +43,14 @@ const Card = ({
 
                 </ul>
                 <div className="align-items-center card-body d-flex flex-grow-0 justify-content-between">
-                    <Link className="card-link" to={`/my-cards/edit/${_id}`}>
+                    {user_id === user?._id && <Link className="card-link" to={`/my-cards/edit/${_id}`}>
                         <i className="bi bi-pencil-fill me-2"></i> Edit
-                    </Link>
-                    <button className="btn btn-danger" onClick={onDelete}>
+                    </Link>}
+                    <button className="btn btn-danger ms-auto" onClick={onDelete}>
                         DELETE
                     </button>
                 </div>
             </div>
-
         </div>
     );
 };
