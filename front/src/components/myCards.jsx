@@ -7,26 +7,33 @@ import PageHeader from "./common/pageHeader";
 
 
 class MyCards extends Component {
+    _isMounted = false;
+
     state = {
         cards: [],
         filteredCards: [],
         sortedCards: []
     };
 
-    componentDidMount() {
-        this.getCards();
+    async componentDidMount() {
+        this._isMounted = true;
+        await this.getCards();
+
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     async getCards() {
         const { data } = await cardsService.getMyCards(this.props.variation);
-        if (data.length) {
+        if (data.length && this._isMounted) {
             this.setState({
                 cards: data,
                 filteredCards: data,
                 sortedCards: data
             });
         }
-
     }
 
     handleCardDelete = async (id) => {

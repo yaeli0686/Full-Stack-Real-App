@@ -26,9 +26,38 @@ code {
 }
 .favBtn {
   transition: transform 0.2s ease;
+  position: relative;
+}
+.favBtn:after {
+  content: attr(data-title);
+  display: grid;
+  position: absolute;
+  color: #fff;
+  font-size: 12px;
+  inset: 0;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 700;
+  transform: translateY(-50%);
+  background: #06060885;
+  border-radius: 50px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  z-index: 0;
+  transition: all 0.2s ease;
+  opacity: 0;
 }
 .favBtn:hover {
   transform: scale(1.2);
+}
+.favBtn:hover:after {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+.favBtn i {
+  position: relative;
+  z-index: 2;
 }
 .card h5 {
   text-shadow: 1px 1px 8px #0000008c;
