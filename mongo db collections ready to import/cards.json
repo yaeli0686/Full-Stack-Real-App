@@ -1,0 +1,136 @@
+[{
+  "_id": {
+    "$oid": "61bdbbc57ba48735bf03cccf"
+  },
+  "bizName": "Mama's Little Bakery",
+  "bizDescription": "For anyone who wishes this place was real and would travel there wherever in the world they are just to taste that amazing cheesecake :))",
+  "bizAddress": "Chicago, Illinois",
+  "bizPhone": "098765432",
+  "bizImage": "https://images.unsplash.com/photo-1570781148825-b9c37b9531e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80",
+  "bizNumber": "290780",
+  "user_id": {
+    "$oid": "61bdba397ba48735bf03cccb"
+  },
+  "__v": 0,
+  "favouriteBy": []
+},{
+  "_id": {
+    "$oid": "61bdbc2a7ba48735bf03ccd3"
+  },
+  "bizName": "BBB",
+  "bizDescription": "BBB - Burgus Burger Bar is an American Style restaurant chain.  The menu includes hamburgers of various sizes, salads and desserts.  BBB branches are open until midnight.",
+  "bizAddress": "Israel",
+  "bizPhone": "098765432",
+  "bizImage": "https://meatvibe.co.il/wp-content/uploads/2021/05/%D7%99%D7%95%D7%9D-%D7%94%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%94%D7%91%D7%A0%D7%99%D7%9C%D7%90%D7%95%D7%9E%D7%99-%D7%A1%D7%A4%D7%99%D7%99%D7%A9%D7%9C-%D7%A0%D7%99%D7%95-%D7%99%D7%95%D7%A8%D7%A7-%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%A0%D7%AA%D7%A0%D7%90%D7%9C-%D7%99%D7%A9%D7%A8%D7%90%D7%9C.jpeg",
+  "bizNumber": "760659",
+  "user_id": {
+    "$oid": "61bdba397ba48735bf03cccb"
+  },
+  "__v": 0,
+  "favouriteBy": []
+},{
+  "_id": {
+    "$oid": "61bdbd997ba48735bf03ccd7"
+  },
+  "bizName": "Japanika",
+  "bizDescription": "Kosher ; Latin Roll. Tempura salmon, tobiko roe, mango and Jalapeño topped with spicy chicken",
+  "bizAddress": "Ahuza St 95, Ra'anana",
+  "bizPhone": "037236100",
+  "bizImage": "https://acdn.foodbox.co.il/wp-content/uploads/sites/8/2019/02/10092752/%D7%9E%D7%92%D7%A9-%D7%92%D7%93%D7%95%D7%9C-768x513.jpg",
+  "bizNumber": "731176",
+  "user_id": {
+    "$oid": "61bdba397ba48735bf03cccb"
+  },
+  "__v": 0,
+  "favouriteBy": []
+},{
+  "_id": {
+    "$oid": "61bdbee47ba48735bf03ccdf"
+  },
+  "bizName": "Fratelli Italian Restaurant",
+  "bizDescription": "Lynchburg, VA Italian Cuisine View Menu. Lynchburg, VA. Italian Cuisine ... At Fratelli, you are our guest, but we treat you like family. ",
+  "bizAddress": "Sderot Giborei Israel 17, Netanya",
+  "bizPhone": "098787690",
+  "bizImage": "https://fratellirest.co.il/wp-content/uploads/sites/607/2020/06/jpg02.jpg",
+  "bizNumber": "195740",
+  "user_id": {
+    "$oid": "61bdba397ba48735bf03cccb"
+  },
+  "__v": 0,
+  "favouriteBy": []
+},{
+  "_id": {
+    "$oid": "61bdccf97ba48735bf03ccf9"
+  },
+  "bizName": "Aroma",
+  "bizDescription": "Aroma Espresso Bar (Hebrew: ארומה אספרסו בר‎) is an Israeli espresso and coffee chain with 153 branches around the country, and several branches in the United States, Canada, Kazakhstan, and Ukraine.",
+  "bizAddress": "Israel",
+  "bizPhone": "098765432",
+  "bizImage": "https://aromatlv.com/wp-content/uploads/2021/03/menuitem_5fd9ff8a4524220dff490233-600x450.jpg",
+  "bizNumber": "362330",
+  "user_id": {
+    "$oid": "61bdba1e7ba48735bf03ccc7"
+  },
+  "__v": 0,
+  "favouriteBy": []
+},{
+  "_id": {
+    "$oid": "61bdcd5f7ba48735bf03ccfd"
+  },
+  "bizName": "Arcaffe",
+  "bizDescription": "Arcaffe is an Italian coffee roastery that dates back to 1895, when Meschini brothers opened their first coffee shop. Their skillfully roasted beans quickly gained esteem with local cafes. Many years have passed since then and now the 5th generation of the founders family combines passion and work, bringing us the incomparable flavor of Arcaffe coffee.",
+  "bizAddress": "Netanya",
+  "bizPhone": "095675432",
+  "bizImage": "https://images.jpost.com/image/upload/f_auto,fl_lossy/t_JM_ArticleMainImageFaceDetect/483760",
+  "bizNumber": "16225",
+  "user_id": {
+    "$oid": "61bdba1e7ba48735bf03ccc7"
+  },
+  "__v": 0,
+  "favouriteBy": []
+},{
+  "_id": {
+    "$oid": "61bdcdc67ba48735bf03cd01"
+  },
+  "bizName": "Laline",
+  "bizDescription": "Shop Skin Care Products & Body Cosmetics by Laline. Discover our leading Bath and Body products - A whole new world is waiting for you only a click away!",
+  "bizAddress": "Ramat Gan",
+  "bizPhone": "098765432",
+  "bizImage": "https://www.mokasini.co.il/wp-content/uploads/2019/02/%D7%9C%D7%9C%D7%99%D7%9F-%D7%A7%D7%95%D7%9C%D7%A7%D7%A6%D7%99%D7%99%D7%AA-%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%AA%D7%9E%D7%95%D7%96-%D7%A8%D7%97%D7%9E%D7%9F-%D7%9E%D7%97%D7%99%D7%A8-180-%D7%91%D7%A7%D7%A0%D7%99%D7%99%D7%AA-%D7%AA%D7%99%D7%A7-%D7%9119.90ROSE-%D7%95%D7%95%D7%9C%D7%A0%D7%98%D7%99%D7%99%D7%9F-2...-1-990x990.jpg",
+  "bizNumber": "189580",
+  "user_id": {
+    "$oid": "61bdba1e7ba48735bf03ccc7"
+  },
+  "__v": 0,
+  "favouriteBy": []
+},{
+  "_id": {
+    "$oid": "61bdce687ba48735bf03cd05"
+  },
+  "bizName": "Rebar",
+  "bizDescription": "\"Rebar\" is a chain of health drinks that has over 60 branches located in urban compounds and shopping centers throughout the country. Rebar has a diverse menu that offers yogurt, healthy drinks, natural health juices, sorbet drinks, 0% fat, yogurt drinks and beverages as needed. In addition, it offers frozen berry mixtures that can be purchased so that you can make health drinks at home.",
+  "bizAddress": "Israel",
+  "bizPhone": "098765433",
+  "bizImage": "https://www.ynet.co.il/PicServer5/2017/03/15/7652566/IMG_5073.jpg",
+  "bizNumber": "687630",
+  "user_id": {
+    "$oid": "61bdba1e7ba48735bf03ccc7"
+  },
+  "__v": 0,
+  "favouriteBy": []
+},{
+  "_id": {
+    "$oid": "61bdceef7ba48735bf03cd09"
+  },
+  "bizName": "Cafe Rimon",
+  "bizDescription": "The Halabi Rimon cafe is located on Mamilla Avenue in Jerusalem.  The dishes at Cafe Rimon are prepared from raw materials, and on the menu you can find salads, lasagna, soups, omelettes, sandwiches and toasts, pastas, pizzas, desserts and more.  This café was added to the legendary milky cafe and to the meat restaurant located on Luntz Street in the center of the city, and also managed by the Rimon family.",
+  "bizAddress": "Mamilla Avenue Jerusalem",
+  "bizPhone": "098765432",
+  "bizImage": "https://media-cdn.tripadvisor.com/media/photo-s/0f/de/34/bb/delicious-israeli-breakfast.jpg",
+  "bizNumber": "155076",
+  "user_id": {
+    "$oid": "61bdba1e7ba48735bf03ccc7"
+  },
+  "__v": 0,
+  "favouriteBy": []
+}]

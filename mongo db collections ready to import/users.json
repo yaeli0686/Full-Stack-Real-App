@@ -1,0 +1,53 @@
+[{
+  "_id": {
+    "$oid": "61bdb95b7ba48735bf03ccb9"
+  },
+  "name": "daniel",
+  "email": "daniel@gmail.com",
+  "password": "$2b$10$Q456umtrFHbsW08aTnNhs..0G07kUWjHjU/DXfAriKAlgakHbuGcC",
+  "biz": false,
+  "cards": [],
+  "createdAt": {
+    "$date": "2021-12-18T10:35:07.335Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61bdb9977ba48735bf03ccbf"
+  },
+  "name": "yael",
+  "email": "yael@gmail.com",
+  "password": "$2b$10$EeqDuN3NHj50sPg3hYKyHeLfAY3Fke/D1qd.hapcd3FvAwYhLeyQq",
+  "biz": false,
+  "cards": [],
+  "createdAt": {
+    "$date": "2021-12-18T10:36:07.332Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61bdba1e7ba48735bf03ccc7"
+  },
+  "name": "yael_biz",
+  "email": "yael_biz@gmail.com",
+  "password": "$2b$10$Sc6d4C0Ku524kUPmVPbeeeIQ2TLlz5BGCtjhuK8xIdNXuWcvrY22O",
+  "biz": true,
+  "cards": [],
+  "createdAt": {
+    "$date": "2021-12-18T10:38:22.951Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61bdba397ba48735bf03cccb"
+  },
+  "name": "daniel_biz",
+  "email": "daniel_biz@gmail.com",
+  "password": "$2b$10$yuvIAmiGfm5BFacjkJDUAe3cN6YFMz0aiFO/LU.08XCgo29H/g.Nm",
+  "biz": true,
+  "cards": [],
+  "createdAt": {
+    "$date": "2021-12-18T10:38:49.194Z"
+  },
+  "__v": 0
+}]
