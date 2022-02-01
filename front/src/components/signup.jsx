@@ -39,7 +39,11 @@ class Signup extends Form {
                 pauseOnHover: true,
                 draggable: true,
             });
-            this.props.history.replace('/');
+
+            await usersService.login(body.email, body.password);
+
+            // this.props.history.replace('/');
+            window.location = "/";
         }
         catch ({ response }) {
             if (response && response.status === 400) {

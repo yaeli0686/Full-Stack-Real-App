@@ -12,7 +12,8 @@ class MyCards extends Component {
     state = {
         cards: [],
         filteredCards: [],
-        sortedCards: []
+        sortedCards: [],
+        sortBy: ""
     };
 
     async componentDidMount() {
@@ -57,14 +58,18 @@ class MyCards extends Component {
 
     handleSearch = (e) => {
         let value = e.target.value;
+        console.log(e.target.value);
         let filteredCards = this.state.cards.filter((card) => card.bizName.toLowerCase().includes(value.toLowerCase()));
         this.setState({ filteredCards });
+        this.handleSort(e);
     }
 
     handleSort = (event, sortBy) => {
+        sortBy && this.setState({ sortBy });
         event.preventDefault();
+        if (!this.state.sortBy) return;
         let newSortedCards;
-        if (sortBy === "name") {
+        if (this.state.sortBy === "name") {
             newSortedCards = [...this.state.sortedCards].sort((a, b) => {
                 if (a.bizName < b.bizName) {
                     return -1;
@@ -75,7 +80,7 @@ class MyCards extends Component {
                 return 0;
             });
         }
-        if (sortBy === "popularity") {
+        if (this.state.sortBy === "popularity") {
             newSortedCards = [...this.state.sortedCards].sort((a, b) => {
                 if (a.favouriteBy.length > b.favouriteBy.length) {
                     return -1;
