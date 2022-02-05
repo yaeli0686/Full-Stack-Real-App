@@ -7,7 +7,7 @@ axios.interceptors.response.use(null, (err) => {
     if (!response) {
         toast.error('Bad connection to server');
     }
-    if (response && response.status >= 403) {
+    if (response && response.status >= 400) {
         console.error(response)
         toast.error(`${response?.message || response?.data || ""}`);
     }

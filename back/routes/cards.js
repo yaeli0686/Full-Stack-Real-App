@@ -32,6 +32,9 @@ router.get("/", async (req, res) => {
 });
 
 router.delete('/:id', auth, async (req, res) => {
+  if (!req.user.biz) {
+    return res.status(401).send("Access Denied");
+  }
 
   const card = await Card.findOneAndRemove({ _id: req.params.id, user_id: req.user._id });
   if (!card) return res.status(404).send('The card with the given ID was not found.');
@@ -40,6 +43,9 @@ router.delete('/:id', auth, async (req, res) => {
 });
 
 router.put('/:id', auth, async (req, res) => {
+  if (!req.user.biz) {
+    return res.status(401).send("Access Denied");
+  }
 
   const { error } = validateCard(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -91,6 +97,9 @@ router.put('/:id/favourite/remove', auth, async (req, res) => {
 });
 
 router.post('/', auth, async (req, res) => {
+  if (!req.user.biz) {
+    return res.status(401).send("Access Denied");
+  }
 
   const { error } = validateCard(req.body);
   if (error) return res.status(400).send(error.details[0].message);

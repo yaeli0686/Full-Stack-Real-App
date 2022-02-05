@@ -43,12 +43,15 @@ const Card = ({
 
                 </ul>
                 <div className="align-items-center card-body d-flex flex-grow-0 justify-content-between">
-                    {user_id === user?._id && <Link className="card-link" to={`/my-cards/edit/${_id}`}>
-                        <i className="bi bi-pencil-fill me-2"></i> Edit
-                    </Link>}
-                    <button className="btn btn-danger ms-auto" onClick={onDelete}>
-                        DELETE
-                    </button>
+                    {user_id === user?._id && <>
+                        <Link className="card-link" to={`/my-cards/edit/${_id}`}>
+                            <i className="bi bi-pencil-fill me-2"></i> Edit
+                        </Link>
+
+                        <button className="btn btn-danger ms-auto" onClick={onDelete}>
+                            DELETE
+                        </button>
+                    </>}
                 </div>
             </div>
         </div>
