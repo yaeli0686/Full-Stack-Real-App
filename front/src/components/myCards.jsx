@@ -58,40 +58,44 @@ class MyCards extends Component {
 
     handleSearch = (e) => {
         let value = e.target.value;
-        console.log(e.target.value);
         let filteredCards = this.state.cards.filter((card) => card.bizName.toLowerCase().includes(value.toLowerCase()));
-        this.setState({ filteredCards });
-        this.handleSort(e);
+        this.setState({ filteredCards },
+            this.handleSort(e, this.state.sortBy)
+        );
     }
 
     handleSort = (event, sortBy) => {
-        sortBy && this.setState({ sortBy });
         event.preventDefault();
-        if (!this.state.sortBy) return;
-        let newSortedCards;
-        if (this.state.sortBy === "name") {
-            newSortedCards = [...this.state.sortedCards].sort((a, b) => {
-                if (a.bizName < b.bizName) {
-                    return -1;
-                }
-                if (a.bizName > b.bizName) {
-                    return 1;
-                }
-                return 0;
-            });
-        }
-        if (this.state.sortBy === "popularity") {
-            newSortedCards = [...this.state.sortedCards].sort((a, b) => {
-                if (a.favouriteBy.length > b.favouriteBy.length) {
-                    return -1;
-                }
-                if (a.favouriteBy.length < b.favouriteBy.length) {
-                    return 1;
-                }
-                return 0;
-            });
-        }
-        this.setState({ sortedCards: newSortedCards });
+
+        this.setState({ sortBy }, () => {
+            let newSortedCards;
+            if (!this.state.sortBy) {
+                newSortedCards = [...this.state.filteredCards];
+            }
+            if (this.state.sortBy === "name") {
+                newSortedCards = [...this.state.filteredCards].sort((a, b) => {
+                    if (a.bizName < b.bizName) {
+                        return -1;
+                    }
+                    if (a.bizName > b.bizName) {
+                        return 1;
+                    }
+                    return 0;
+                });
+            }
+            if (this.state.sortBy === "popularity") {
+                newSortedCards = [...this.state.filteredCards].sort((a, b) => {
+                    if (a.favouriteBy.length > b.favouriteBy.length) {
+                        return -1;
+                    }
+                    if (a.favouriteBy.length < b.favouriteBy.length) {
+                        return 1;
+                    }
+                    return 0;
+                });
+            }
+            this.setState({ sortedCards: newSortedCards });
+        });
     }
 
     render() {
