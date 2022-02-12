@@ -47,10 +47,16 @@ class MyCards extends Component {
             // await this.getCards();
 
             // solution 2
-            const { cards } = this.state;
-            this.setState({
-                cards: cards.filter((card) => card._id !== id),
-            });
+            // const { cards } = this.state;
+            // this.setState({
+            //     cards: cards.filter((card) => card._id !== id),
+            // });
+
+            // solution 3
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000)
+
         } catch (e) {
             toast.error(e)
         }
