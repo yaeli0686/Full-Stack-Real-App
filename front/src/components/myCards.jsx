@@ -44,9 +44,9 @@ class MyCards extends Component {
             toast("Card deleted");
 
             // solution 1
-            // await this.getCards();
+            // const cards = await this.getCards();
 
-            // solution 2
+            // // solution 2
             // const { cards } = this.state;
             // this.setState({
             //     cards: cards.filter((card) => card._id !== id),
